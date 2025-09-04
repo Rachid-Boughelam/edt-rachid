@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
+import { trigger, state, style, transition, animate } from '@angular/animations';
 
 interface Seance {
   periode: string;
@@ -18,8 +19,30 @@ interface Activite {
   imports: [CommonModule],
   templateUrl: './planning.html',
   styleUrls: ['./planning.css'],
+  animations: [
+    trigger('slideToggle', [
+      state('hidden', style({
+        height: '0px',
+        opacity: 0,
+        overflow: 'hidden'
+      })),
+      state('visible', style({
+        height: '*',
+        opacity: 1
+      })),
+      transition('hidden <=> visible', [
+        animate('300ms ease-in-out')
+      ]),
+    ])
+  ]
 })
 export class PlanningComponent implements OnInit {
+  showActivites = true;
+
+  toggleActivites() {
+    this.showActivites = !this.showActivites;
+  }
+
   jours = [1, 2, 3, 4, 5];
   
   private readonly ADMIN_PASSWORD = 'rachid123'; 

@@ -25,20 +25,26 @@
 
   <br><br>
 
-  <h1>📚 Activités proposées</h1>
+<h1 (click)="toggleActivites()" style="cursor:pointer">
+  📚 Activités proposées 
+  <span *ngIf="showActivites">⮟</span>
+  <span *ngIf="!showActivites">⮝</span>
+</h1>
 
-  <table>
-    <thead>
-      <tr>
-        <th>titre</th>
-        <th>objectif(s)</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let activite of activites">
-        <td>{{ activite.titre }}</td>
-        <td>{{ activite.objectif }}</td>
-      </tr>
-    </tbody>
-  </table>
+<table [@slideToggle]="showActivites ? 'visible' : 'hidden'">
+  <thead>
+    <tr>
+      <th>titre</th>
+      <th>objectif(s)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let activite of activites">
+      <td>{{ activite.titre }}</td>
+      <td>{{ activite.objectif }}</td>
+    </tr>
+  </tbody>
+</table>
+
+
 </div>
