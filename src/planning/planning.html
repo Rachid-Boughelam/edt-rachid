@@ -1,0 +1,44 @@
+<div class="planning">
+  <h1>🗓️ Disponibilités du moniteur de langue</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Période</th>
+        <th *ngFor="let jour of jours">Jour {{ jour }}</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let seance of planning; let i = index">
+        <th class="periode">{{ seance.periode }}</th>
+        <td
+          *ngFor="let cell of seance.jours; let j = index"
+          (click)="onCellClick(i, j, $event)"
+          [class.vide]="cell === '—'"
+        >
+          {{ cell }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <br><br>
+
+  <h1>📚 Activités proposées</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>titre</th>
+        <th>objectif(s)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let activite of activites">
+        <td>{{ activite.titre }}</td>
+        <td>{{ activite.objectif }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
