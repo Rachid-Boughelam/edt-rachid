@@ -15,16 +15,19 @@
     </tr>
   </thead>
 
-  <tbody>
-    <tr *ngFor="let seance of planning; let i = index">
-      <th class="periode">{{ seance.periode }}</th>
-      <td
-        *ngFor="let cell of seance.jours; let j = index"
-        (click)="onCellClick(i, j, $event)"
-        [class.vide]="cell === '—'"
-      >
-        {{ cell }}
-      </td>
-    </tr>
-  </tbody>
+<tbody>
+  <tr *ngFor="let seance of planning; let i = index">
+    <th class="periode" [ngClass]="{ 'strong': seance.periode.startsWith('P') }">
+      {{ seance.periode }}
+    </th>
+    <td
+      *ngFor="let cell of seance.jours; let j = index"
+      (click)="onCellClick(i, j, $event)"
+      [class.vide]="cell === '—'"
+    >
+      {{ cell }}
+    </td>
+  </tr>
+</tbody>
+
 </table>

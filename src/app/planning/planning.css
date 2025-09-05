@@ -110,3 +110,15 @@ td:hover { background: #f3f6ff; }
   td, th { padding: 0.75rem; }
   th.periode { min-width: 120px; font-size: 0.85rem; }
 }
+
+th.periode {
+  background: #f9f9fb;
+  text-align: left;
+  color: #555;
+  min-width: 160px;
+  font-weight: normal; /* par défaut (récré/dîner) */
+}
+
+th.periode.strong {
+  font-weight: 700; /* P1, P2, P3, etc. */
+}
