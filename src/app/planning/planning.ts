@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { trigger, state, style, transition, animate } from '@angular/animations';
+import { PlanningService } from '../services/planning'; 
 
 interface Seance {
   periode: string;
@@ -60,26 +61,23 @@ export class PlanningComponent implements OnInit {
     { periode: 'P6 : 13h35-14h20', jours: ['—', '—', '—', '—', '—'] },
   ];
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private planningService: PlanningService // ✅ injecter le service Firestore
+  ) {}
 
-  ngOnInit(): void {
-    // Charger le planning sauvegardé
-    const saved = localStorage.getItem('planning');
-    if (saved) {
-      const savedPlanning: Seance[] = JSON.parse(saved);
-      this.planning.forEach((seance, index) => {
-        if (savedPlanning[index]) {
-          seance.jours = savedPlanning[index].jours;
-        }
-      });
+  async ngOnInit(): Promise<void> {
+    // Charger le planning depuis Firestore
+    const savedPlanning = await this.planningService.loadPlanning();
+    if (savedPlanning) {
+      this.planning = savedPlanning;
     }
 
     // Charger les activités depuis le JSON
-this.http.get<Activite[]>('/assets/activities.json').subscribe({
-  next: (data) => (this.activites = data),
-  error: (err) => console.error('Erreur de chargement des activités', err),
-});
-
+    this.http.get<Activite[]>('/assets/activities.json').subscribe({
+      next: (data) => (this.activites = data),
+      error: (err) => console.error('Erreur de chargement des activités', err),
+    });
   }
 
   onCellClick(i: number, j: number, event: MouseEvent) {
@@ -117,6 +115,7 @@ this.http.get<Activite[]>('/assets/activities.json').subscribe({
   }
 
   private persist() {
-    localStorage.setItem('planning', JSON.stringify(this.planning));
+    // ✅ On sauvegarde dans Firestore au lieu du localStorage
+    this.planningService.savePlanning(this.planning);
   }
 }

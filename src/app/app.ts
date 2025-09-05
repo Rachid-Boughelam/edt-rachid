@@ -3,10 +3,11 @@ import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
+  standalone: true,          // 👈 obligatoire pour un composant standalone
   imports: [RouterOutlet],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrls: ['./app.css']   // 👈 styleUrl → styleUrls (au pluriel)
 })
-export class App {
+export class AppComponent {
   protected readonly title = signal('edt-rachid');
 }
