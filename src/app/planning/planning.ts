@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { trigger, state, style, transition, animate } from '@angular/animations';
-import { PlanningService } from '../services/planning'; 
+import { PlanningService } from '../services/planning';
 
 interface Seance {
   periode: string;
@@ -22,34 +22,18 @@ interface Activite {
   styleUrls: ['./planning.css'],
   animations: [
     trigger('slideToggle', [
-      state('hidden', style({
-        height: '0px',
-        opacity: 0,
-        overflow: 'hidden'
-      })),
-      state('visible', style({
-        height: '*',
-        opacity: 1
-      })),
-      transition('hidden <=> visible', [
-        animate('300ms ease-in-out')
-      ]),
-    ])
-  ]
+      state('hidden', style({ height: '0px', opacity: 0, overflow: 'hidden' })),
+      state('visible', style({ height: '*', opacity: 1 })),
+      transition('hidden <=> visible', [animate('300ms ease-in-out')]),
+    ]),
+  ],
 })
 export class PlanningComponent implements OnInit {
   showActivites = true;
-
-  toggleActivites() {
-    this.showActivites = !this.showActivites;
-  }
-
   jours = [1, 2, 3, 4, 5];
-  
-  private readonly ADMIN_PASSWORD = 'rachid123'; 
+  private readonly ADMIN_PASSWORD = 'rachid123';
 
-  activites: Activite[] = []; // Chargées depuis JSON
-
+  activites: Activite[] = [];
   planning: Seance[] = [
     { periode: 'P1 : 8h30-9h15', jours: ['—', '—', '—', '—', '—'] },
     { periode: 'P2 : 9h15-10h00', jours: ['—', '—', '—', '—', '—'] },
@@ -63,14 +47,17 @@ export class PlanningComponent implements OnInit {
 
   constructor(
     private http: HttpClient,
-    private planningService: PlanningService // ✅ injecter le service Firestore
+    private planningService: PlanningService
   ) {}
 
   async ngOnInit(): Promise<void> {
-    // Charger le planning depuis Firestore
+    // 🔥 Charger le planning depuis Firestore
     const savedPlanning = await this.planningService.loadPlanning();
     if (savedPlanning) {
+      console.log('✅ Planning chargé depuis Firestore :', savedPlanning);
       this.planning = savedPlanning;
+    } else {
+      console.log('⚠️ Aucun planning trouvé dans Firestore');
     }
 
     // Charger les activités depuis le JSON
@@ -80,10 +67,13 @@ export class PlanningComponent implements OnInit {
     });
   }
 
+  toggleActivites() {
+    this.showActivites = !this.showActivites;
+  }
+
   onCellClick(i: number, j: number, event: MouseEvent) {
     const actuel = this.planning[i].jours[j];
 
-    // Cas 1 : créneau vide → libre
     if (actuel === '—') {
       const nom = prompt("Saisir le nom de l'enseignant");
       if (nom && nom.trim().length > 0) {
@@ -93,14 +83,12 @@ export class PlanningComponent implements OnInit {
       return;
     }
 
-    // Cas 2 : créneau occupé → demande mot de passe
     const mdp = prompt('🔒 Ce créneau est déjà pris.\nMot de passe requis pour modifier/supprimer :');
     if (mdp !== this.ADMIN_PASSWORD) {
       alert('❌ Mot de passe incorrect.');
       return;
     }
 
-    // Si mot de passe correct → choix entre modifier ou supprimer
     const action = confirm('✅ Mot de passe correct.\nOK = Modifier\nAnnuler = Supprimer');
     if (action) {
       const nom = prompt('Modifier le rendez-vous :', actuel);
@@ -114,8 +102,12 @@ export class PlanningComponent implements OnInit {
     this.persist();
   }
 
-  private persist() {
-    // ✅ On sauvegarde dans Firestore au lieu du localStorage
-    this.planningService.savePlanning(this.planning);
+  private async persist() {
+    try {
+      await this.planningService.savePlanning(this.planning);
+      console.log('💾 Planning sauvegardé dans Firestore');
+    } catch (err) {
+      console.error('❌ Erreur lors de la sauvegarde Firestore', err);
+    }
   }
 }
