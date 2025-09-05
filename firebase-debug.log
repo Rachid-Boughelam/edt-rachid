@@ -1,0 +1,93 @@
+[debug] [2025-09-05T12:00:24.667Z] ----------------------------------------------------------------------
+[debug] [2025-09-05T12:00:24.670Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Rachid Boughelam\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --only hosting --debug
+[debug] [2025-09-05T12:00:24.670Z] CLI Version:   14.15.2
+[debug] [2025-09-05T12:00:24.670Z] Platform:      win32
+[debug] [2025-09-05T12:00:24.670Z] Node Version:  v22.17.1
+[debug] [2025-09-05T12:00:24.671Z] Time:          Fri Sep 05 2025 09:00:24 GMT-0300 (heure d’été de l’Atlantique)
+[debug] [2025-09-05T12:00:24.671Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-09-05T12:00:24.909Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-09-05T12:00:24.911Z] > authorizing via signed-in user (boughelam.rachid@hotmail.fr)
+[debug] [2025-09-05T12:00:24.911Z] [iam] checking project edt-rachid for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2025-09-05T12:00:24.913Z] Checked if tokens are valid: true, expires at: 1757075709650
+[debug] [2025-09-05T12:00:24.913Z] Checked if tokens are valid: true, expires at: 1757075709650
+[debug] [2025-09-05T12:00:24.914Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/edt-rachid:testIamPermissions [none]
+[debug] [2025-09-05T12:00:24.915Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/edt-rachid:testIamPermissions x-goog-quota-user=projects/edt-rachid
+[debug] [2025-09-05T12:00:24.915Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/edt-rachid:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2025-09-05T12:00:25.424Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/edt-rachid:testIamPermissions 200
+[debug] [2025-09-05T12:00:25.426Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/edt-rachid:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2025-09-05T12:00:25.429Z] Checked if tokens are valid: true, expires at: 1757075709650
+[debug] [2025-09-05T12:00:25.430Z] Checked if tokens are valid: true, expires at: 1757075709650
+[debug] [2025-09-05T12:00:25.432Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/edt-rachid [none]
+[debug] [2025-09-05T12:00:26.010Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/edt-rachid 200
+[debug] [2025-09-05T12:00:26.010Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/edt-rachid {"projectId":"edt-rachid","projectNumber":"705539279882","displayName":"edt-rachid","name":"projects/edt-rachid","resources":{"hostingSite":"edt-rachid"},"state":"ACTIVE","etag":"1_a1da2844-60e1-496d-9e1b-f10290c550f4"}
+[info] 
+[info] === Deploying to 'edt-rachid'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2025-09-05T12:00:26.017Z] Checked if tokens are valid: true, expires at: 1757075709650
+[debug] [2025-09-05T12:00:26.017Z] Checked if tokens are valid: true, expires at: 1757075709650
+[debug] [2025-09-05T12:00:26.017Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/edt-rachid/versions [none]
+[debug] [2025-09-05T12:00:26.018Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/edt-rachid/versions {"status":"CREATED","labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2025-09-05T12:00:26.619Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/edt-rachid/versions 200
+[debug] [2025-09-05T12:00:26.619Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/edt-rachid/versions {"name":"projects/705539279882/sites/edt-rachid/versions/274898ef8357daa7","status":"CREATED","config":{},"labels":{"deployment-tool":"cli-firebase"}}
+[info] i  hosting[edt-rachid]: beginning deploy... 
+[info] i  hosting[edt-rachid]: found 6 files in dist/edt-rachid/browser 
+[debug] [2025-09-05T12:00:26.638Z] [hosting] uploading with 200 concurrency
+[debug] [2025-09-05T12:00:26.678Z] Checked if tokens are valid: true, expires at: 1757075709650
+[debug] [2025-09-05T12:00:26.678Z] Checked if tokens are valid: true, expires at: 1757075709650
+[debug] [2025-09-05T12:00:26.679Z] [hosting] hash cache [ZGlzdFxlZHQtcmFjaGlkXGJyb3dzZXI] stored for 6 files
+[debug] [2025-09-05T12:00:26.680Z] [hosting][hash queue][FINAL] {"max":36,"min":0,"avg":9,"active":0,"complete":6,"success":6,"errored":0,"retried":0,"total":6,"elapsed":41}
+[debug] [2025-09-05T12:00:26.681Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/705539279882/sites/edt-rachid/versions/274898ef8357daa7:populateFiles [none]
+[debug] [2025-09-05T12:00:26.681Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/705539279882/sites/edt-rachid/versions/274898ef8357daa7:populateFiles {"files":{"/favicon.ico":"e6eb31b8a499241b8168af790b03233ab5de4fa2e07be7398f6ed1c27f906fb3","/assets/activities.json":"7664b2d11f95c6fa80efc1c632b0c3e94cf6439c8ccc880c17e0204431c51a7d","/styles-5INURTSO.css":"46b50c321b39e89a491b6727a01628c34245605a30beb3e7414c5e01cff90e6e","/index.html":"8f9206425353b63da9e284f5d08b6c2ec479e14f9699c55e968ec93895628583","/polyfills-5CFQRCPP.js":"01200fec31742276cd52f441fe1fc84938c53abceeedd3f35725033f5e782591","/main-OBAXJU5G.js":"195d0d3912715c8d3f6a79f57faf4b91f5e8b88f99c92a1a0e1ecd57dbe2d5e8"}}
+[debug] [2025-09-05T12:00:26.846Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/705539279882/sites/edt-rachid/versions/274898ef8357daa7:populateFiles 200
+[debug] [2025-09-05T12:00:26.847Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/705539279882/sites/edt-rachid/versions/274898ef8357daa7:populateFiles {"uploadUrl":"https://upload-firebasehosting.googleapis.com/upload/sites/edt-rachid/versions/274898ef8357daa7/files"}
+[debug] [2025-09-05T12:00:26.849Z] [hosting][populate queue][FINAL] {"max":172,"min":172,"avg":172,"active":0,"complete":1,"success":1,"errored":0,"retried":0,"total":1,"elapsed":172}
+[debug] [2025-09-05T12:00:26.850Z] [hosting] uploads queued: 0
+[debug] [2025-09-05T12:00:26.851Z] [hosting][upload queue][FINAL] {"max":0,"min":9999999999,"avg":0,"active":0,"complete":0,"success":0,"errored":0,"retried":0,"total":0,"elapsed":1757073626851}
+[info] i  hosting: upload complete 
+[info] +  hosting[edt-rachid]: file upload complete 
+[debug] [2025-09-05T12:00:26.854Z] [hosting] deploy completed after 231ms
+[debug] [2025-09-05T12:00:26.856Z] [
+  {
+    "config": {
+      "public": "dist/edt-rachid/browser",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ],
+      "site": "edt-rachid"
+    },
+    "version": "projects/705539279882/sites/edt-rachid/versions/274898ef8357daa7"
+  }
+]
+[info] i  hosting[edt-rachid]: finalizing version... 
+[debug] [2025-09-05T12:00:26.864Z] Checked if tokens are valid: true, expires at: 1757075709650
+[debug] [2025-09-05T12:00:26.865Z] Checked if tokens are valid: true, expires at: 1757075709650
+[debug] [2025-09-05T12:00:26.867Z] >>> [apiv2][query] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/edt-rachid/versions/274898ef8357daa7 updateMask=status%2Cconfig
+[debug] [2025-09-05T12:00:26.868Z] >>> [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/edt-rachid/versions/274898ef8357daa7 {"status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]}}
+[debug] [2025-09-05T12:00:27.088Z] <<< [apiv2][status] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/edt-rachid/versions/274898ef8357daa7 200
+[debug] [2025-09-05T12:00:27.089Z] <<< [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/edt-rachid/versions/274898ef8357daa7 {"name":"projects/705539279882/sites/edt-rachid/versions/274898ef8357daa7","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2025-09-05T12:00:26.381274Z","createUser":{"email":"boughelam.rachid@hotmail.fr"},"finalizeTime":"2025-09-05T12:00:27.037270Z","finalizeUser":{"email":"boughelam.rachid@hotmail.fr"}}
+[debug] [2025-09-05T12:00:27.090Z] [hosting] finalized version for edt-rachid:[object Object]
+[info] +  hosting[edt-rachid]: version finalized 
+[info] i  hosting[edt-rachid]: releasing new version... 
+[debug] [2025-09-05T12:00:27.093Z] Checked if tokens are valid: true, expires at: 1757075709650
+[debug] [2025-09-05T12:00:27.093Z] Checked if tokens are valid: true, expires at: 1757075709650
+[debug] [2025-09-05T12:00:27.094Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/edt-rachid/channels/live/releases versionName=projects%2F705539279882%2Fsites%2Fedt-rachid%2Fversions%2F274898ef8357daa7
+[debug] [2025-09-05T12:00:27.095Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/edt-rachid/channels/live/releases {}
+[debug] [2025-09-05T12:00:27.294Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/edt-rachid/channels/live/releases 200
+[debug] [2025-09-05T12:00:27.295Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/edt-rachid/channels/live/releases {"name":"projects/705539279882/sites/edt-rachid/channels/live/releases/1757073626706000","version":{"name":"projects/705539279882/sites/edt-rachid/versions/274898ef8357daa7","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2025-09-05T12:00:26.381274Z","createUser":{"email":"boughelam.rachid@hotmail.fr","imageUrl":"https://lh3.googleusercontent.com/a/ACg8ocKN9dORzaqRDcyXCo_MZh1K3LpaG_ALf08buvDM5mpgSttRVNsp"},"finalizeTime":"2025-09-05T12:00:27.037270Z","finalizeUser":{"email":"boughelam.rachid@hotmail.fr","imageUrl":"https://lh3.googleusercontent.com/a/ACg8ocKN9dORzaqRDcyXCo_MZh1K3LpaG_ALf08buvDM5mpgSttRVNsp"}},"type":"DEPLOY","releaseTime":"2025-09-05T12:00:26.706Z","releaseUser":{"email":"boughelam.rachid@hotmail.fr","imageUrl":"https://lh3.googleusercontent.com/a/ACg8ocKN9dORzaqRDcyXCo_MZh1K3LpaG_ALf08buvDM5mpgSttRVNsp"}}
+[debug] [2025-09-05T12:00:27.296Z] [hosting] release: {"name":"projects/705539279882/sites/edt-rachid/channels/live/releases/1757073626706000","version":{"name":"projects/705539279882/sites/edt-rachid/versions/274898ef8357daa7","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2025-09-05T12:00:26.381274Z","createUser":{"email":"boughelam.rachid@hotmail.fr","imageUrl":"https://lh3.googleusercontent.com/a/ACg8ocKN9dORzaqRDcyXCo_MZh1K3LpaG_ALf08buvDM5mpgSttRVNsp"},"finalizeTime":"2025-09-05T12:00:27.037270Z","finalizeUser":{"email":"boughelam.rachid@hotmail.fr","imageUrl":"https://lh3.googleusercontent.com/a/ACg8ocKN9dORzaqRDcyXCo_MZh1K3LpaG_ALf08buvDM5mpgSttRVNsp"}},"type":"DEPLOY","releaseTime":"2025-09-05T12:00:26.706Z","releaseUser":{"email":"boughelam.rachid@hotmail.fr","imageUrl":"https://lh3.googleusercontent.com/a/ACg8ocKN9dORzaqRDcyXCo_MZh1K3LpaG_ALf08buvDM5mpgSttRVNsp"}}
+[info] +  hosting[edt-rachid]: release complete 
+[info] 
+[info] +  Deploy complete! 
+[info] 
+[info] Project Console: https://console.firebase.google.com/project/edt-rachid/overview
+[info] Hosting URL: https://edt-rachid.web.app
