@@ -1,36 +1,58 @@
+/* === Layout général === */
 .planning {
   max-width: 1100px;
   margin: 2rem auto;
   padding: 1rem;
 }
 
-.planning h1 {
-  font-size: clamp(1.8rem, 2vw + 1rem, 2.5rem); /* responsive */
-  font-weight: 700;
-  text-align: center;
-  margin-bottom: 2rem;
-  color: #2c3e50;
-  letter-spacing: -0.5px;
+/* === Header === */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: relative;
-  display: inline-block;
-  padding-bottom: 0.5rem;
-  border-bottom: 4px solid transparent;
-  background: linear-gradient(90deg, #6c63ff, #7f8cff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  display: table;
-  margin: 0 auto;
-  text-align: center;
+  padding: 10px;
+  margin-bottom: 2rem;
 }
 
-.planning h1::after {
-  content: "";
-  display: block;
-  width: 60%;
-  margin: 0.5rem auto 0;
-  height: 3px;
-  border-radius: 3px;
-  background: linear-gradient(90deg, #6c63ff, #7f8cff);
+.logo {
+  position: absolute;
+  left: 10px;
+  height: 80px;
+  width: auto;
+  transition: transform 0.3s ease;
+}
+.logo:hover { transform: scale(1.05); }
+
+/* === Titre principal === */
+.fancy-title {
+  font-size: clamp(1.8rem, 2vw + 1rem, 2.6rem);
+  font-weight: 800;
+  text-align: center;
+  margin: 0 auto;
+  letter-spacing: -0.5px;
+  position: relative;
+  padding-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.emoji {
+  font-size: 1.8rem;
+  color: inherit; /* reste simple */
+}
+.fancy-title .text {
+  background: linear-gradient(90deg, #6c63ff, #7f8cff, #6c63ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% auto;
+  animation: gradient-move 5s linear infinite;
+}
+
+@keyframes gradient-move {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
 }
 
 /* === Table === */
@@ -43,7 +65,6 @@ table {
   overflow: hidden;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
-
 thead th {
   background: linear-gradient(135deg, #6c63ff, #7f8cff);
   color: white;
@@ -52,9 +73,7 @@ thead th {
   padding: 1rem;
   font-size: 0.95rem;
 }
-
-th,
-td {
+th, td {
   border-bottom: 1px solid #ececec;
   padding: 1rem;
   text-align: center;
@@ -62,12 +81,8 @@ td {
   transition: background 0.25s ease;
   white-space: pre-line;
 }
-
 tbody tr:last-child th,
-tbody tr:last-child td {
-  border-bottom: none;
-}
-
+tbody tr:last-child td { border-bottom: none; }
 th.periode {
   background: #f9f9fb;
   font-weight: 600;
@@ -75,40 +90,23 @@ th.periode {
   color: #555;
   min-width: 160px;
 }
-
 td {
   cursor: pointer;
   font-size: 0.9rem;
   border-left: 1px solid #f2f2f2;
 }
-
 td.vide {
   color: #aaa;
   font-style: italic;
 }
-
-td:hover {
-  background: #f3f6ff;
-}
+td:hover { background: #f3f6ff; }
 
 /* === Responsive === */
 @media (max-width: 768px) {
-  table {
-    display: block;
-    overflow-x: auto;
-    white-space: nowrap;
-  }
-
-  thead {
-    font-size: 0.8rem;
-  }
-
-  td, th {
-    padding: 0.75rem;
-  }
-
-  th.periode {
-    min-width: 120px;
-    font-size: 0.85rem;
-  }
+  .logo { height: 50px; }
+  .fancy-title { font-size: 1.5rem; }
+  table { display: block; overflow-x: auto; white-space: nowrap; }
+  thead { font-size: 0.8rem; }
+  td, th { padding: 0.75rem; }
+  th.periode { min-width: 120px; font-size: 0.85rem; }
 }

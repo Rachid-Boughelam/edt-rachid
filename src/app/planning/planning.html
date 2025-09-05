@@ -1,50 +1,30 @@
-<div class="planning">
-  <h1>🗓️ Disponibilités du moniteur de langue</h1>
+<div class="header">
+  <img src="assets/logo-cscsc.png" alt="Logo" class="logo" />
+  <h1 class="fancy-title">
+    <span class="emoji">🗓️</span>
+    <span class="text">Disponibilités du moniteur de langue</span>
+  </h1>
+</div>
 
-  <table>
-    <thead>
-      <tr>
-        <th>Période</th>
-        <th *ngFor="let jour of jours">Jour {{ jour }}</th>
-      </tr>
-    </thead>
 
-    <tbody>
-      <tr *ngFor="let seance of planning; let i = index">
-        <th class="periode">{{ seance.periode }}</th>
-        <td
-          *ngFor="let cell of seance.jours; let j = index"
-          (click)="onCellClick(i, j, $event)"
-          [class.vide]="cell === '—'"
-        >
-          {{ cell }}
-        </td>
-      </tr>
-    </tbody>
-  </table>
-
-  <br><br>
-
-<h1 (click)="toggleActivites()" style="cursor:pointer">
-  📚 Activités proposées 
-  <span *ngIf="showActivites">⮟</span>
-  <span *ngIf="!showActivites">⮝</span>
-</h1>
-
-<table [@slideToggle]="showActivites ? 'visible' : 'hidden'">
+<table>
   <thead>
     <tr>
-      <th>titre</th>
-      <th>objectif(s)</th>
+      <th>Période</th>
+      <th *ngFor="let jour of jours">Jour {{ jour }}</th>
     </tr>
   </thead>
+
   <tbody>
-    <tr *ngFor="let activite of activites">
-      <td>{{ activite.titre }}</td>
-      <td>{{ activite.objectif }}</td>
+    <tr *ngFor="let seance of planning; let i = index">
+      <th class="periode">{{ seance.periode }}</th>
+      <td
+        *ngFor="let cell of seance.jours; let j = index"
+        (click)="onCellClick(i, j, $event)"
+        [class.vide]="cell === '—'"
+      >
+        {{ cell }}
+      </td>
     </tr>
   </tbody>
 </table>
-
-
-</div>
