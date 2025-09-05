@@ -5,7 +5,6 @@ import { AppComponent } from './app/app';
 import { routes } from './app/app.routes'; 
 import { environment } from './environments/environment';
 
-// 🔥 Firebase
 import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 

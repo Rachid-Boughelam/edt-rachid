@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist/edt-rachid/browser",
+    "public": "dist/edt-rachid",
     "ignore": [
       "firebase.json",
       "**/.*",
