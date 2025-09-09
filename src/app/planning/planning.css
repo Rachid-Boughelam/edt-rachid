@@ -101,7 +101,19 @@ td.vide {
 }
 td:hover { background: #f3f6ff; }
 
-/* === Responsive === */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;   /* logo au-dessus du titre */
+    align-items: center;      /* centrage horizontal */
+  }
+
+  .logo {
+    position: static;         /* enlève le absolute */
+    margin-bottom: 0.5rem;    /* espace entre logo et titre */
+    height: 60px;             /* taille adaptée mobile */
+  }
+}
+
 @media (max-width: 768px) {
   .logo { height: 50px; }
   .fancy-title { font-size: 1.5rem; }
@@ -116,9 +128,9 @@ th.periode {
   text-align: left;
   color: #555;
   min-width: 160px;
-  font-weight: normal; /* par défaut (récré/dîner) */
+  font-weight: normal; 
 }
 
 th.periode.strong {
-  font-weight: 700; /* P1, P2, P3, etc. */
+  font-weight: 700; 
 }

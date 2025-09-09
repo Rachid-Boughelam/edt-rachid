@@ -1,16 +1,13 @@
 {
   "hosting": {
-    "public": "dist/edt-rachid/browser",
+    "public": "dist/edt-sally/browser",
     "ignore": [
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
     ],
     "rewrites": [
-      {
-        "source": "**",
-        "destination": "/index.html"
-      }
+      { "source": "**", "destination": "/index.html" }
     ]
   }
 }

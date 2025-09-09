@@ -17,7 +17,7 @@ interface Seance {
 })
 export class PlanningComponent implements OnInit {
   jours = [1, 2, 3, 4, 5];
-  private readonly ADMIN_PASSWORD = 'rachid123';
+  private readonly ADMIN_PASSWORD = 'sally123';
 
   planning: Seance[] = [
     { periode: 'P1 : 8h30-9h15', jours: ['—', '—', '—', '—', '—'] },

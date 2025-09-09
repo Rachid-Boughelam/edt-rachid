@@ -9,5 +9,5 @@ import { RouterOutlet } from '@angular/router';
   styleUrls: ['./app.css']   
 })
 export class AppComponent {
-  protected readonly title = signal('edt-rachid');
+  protected readonly title = signal('edt-sally');
 }
