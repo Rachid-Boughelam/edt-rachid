@@ -134,3 +134,94 @@ th.periode {
 th.periode.strong {
   font-weight: 700; 
 }
+
+h2 {
+  font-family: 'Arial', sans-serif;
+  font-size: 1.5em;        /* Taille légèrement plus grande que le texte normal */
+  color: #2c3e50;          /* Couleur bleu foncé/gris pour contraste */
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+  padding-left: 0.5em;     /* Un petit décalage pour aérer */
+  border-left: 4px solid #3498db; /* Barre colorée à gauche pour accent */
+  background-color: #ecf0f1; /* Fond léger pour faire ressortir le h2 */
+  border-radius: 4px;       /* Coins arrondis */
+  padding: 0.3em 0.5em;     /* Espacement intérieur */
+  transition: background-color 0.3s ease;
+}
+
+/* Effet au survol */
+h2:hover {
+  background-color: #d0e7ff; /* Fond un peu plus bleu au survol */
+  cursor: pointer;            /* Montre que c’est interactif */
+}
+
+.card {
+  background-color: #fdfdfd;    /* Fond clair */
+  border: 2px solid #3498db;    /* Bordure bleue */
+  border-radius: 10px;           /* Coins arrondis */
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Ombre légère */
+  padding: 1em 1.5em;           /* Espacement intérieur */
+  margin: 1em 0;                /* Espacement entre les cards */
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+/* Effet au survol */
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0,0,0,0.2);
+}
+
+/* Style du titre de la card */
+.card h3 {
+  margin-top: 0;
+  color: #2c3e50;
+  font-family: 'Arial', sans-serif;
+  font-size: 1.3em;
+}
+
+/* Style des listes dans la card */
+.card ul {
+  margin: 0.5em 0 0 1em;
+  padding: 0;
+}
+
+.card ul li {
+  margin-bottom: 0.5em;
+  line-height: 1.4;
+}
+.cards-container {
+  display: flex;             /* Affichage en ligne */
+  flex-wrap: wrap;           /* Permet de passer à la ligne si trop de cartes */
+  gap: 1em;                  /* Espacement entre les cards */
+}
+
+.card {
+  background-color: #fdfdfd;
+  border: 2px solid #3498db;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  padding: 0.8em 1em;
+  width: 220px;              /* Largeur fixe pour les mini-cards */
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 10px rgba(0,0,0,0.15);
+}
+
+.card h3 {
+  margin-top: 0;
+  font-size: 1.1em;
+  color: #2c3e50;
+}
+
+.card ul {
+  margin: 0.5em 0 0 1em;
+  padding: 0;
+}
+
+.card ul li {
+  margin-bottom: 0.3em;
+  line-height: 1.3;
+}
