@@ -22,9 +22,7 @@ export class PlanningComponent implements OnInit {
   planning: Seance[] = [
     { periode: 'P1 : 8h30-9h15', jours: ['—', '—', '—', '—', '—'] },
     { periode: 'P2 : 9h15-10h00', jours: ['—', '—', '—', '—', '—'] },
-    { periode: 'Récréation : 10h00-10h20', jours: ['—', '—', '—', '—', '—'] },
     { periode: 'P3 : 10h20-11h05', jours: ['—', '—', '—', '—', '—'] },
-    { periode: 'Dîner : 11h05 - 12h05', jours: ['—', '—', '—', '—', '—'] },
     { periode: 'P4 : 12h05-12h50', jours: ['—', '—', '—', '—', '—'] },
     { periode: 'P5 : 12h50-13h35', jours: ['—', '—', '—', '—', '—'] },
     { periode: 'P6 : 13h35-14h20', jours: ['—', '—', '—', '—', '—'] },
