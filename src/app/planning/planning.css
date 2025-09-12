@@ -1,47 +1,32 @@
-/* === Layout général === */
-.planning {
-  max-width: 1100px;
-  margin: 2rem auto;
+/* === Général === */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #fafafa;
+  margin: 0;
   padding: 1rem;
 }
 
-/* === Header === */
+/* === Header et titre principal === */
 .header {
   display: flex;
-  align-items: center;
   justify-content: center;
-  position: relative;
-  padding: 10px;
   margin-bottom: 2rem;
 }
 
-.logo {
-  position: absolute;
-  left: 10px;
-  height: 80px;
-  width: auto;
-  transition: transform 0.3s ease;
-}
-.logo:hover { transform: scale(1.05); }
-
-/* === Titre principal === */
 .fancy-title {
-  font-size: clamp(1.8rem, 2vw + 1rem, 2.6rem);
-  font-weight: 800;
-  text-align: center;
-  margin: 0 auto;
-  letter-spacing: -0.5px;
-  position: relative;
-  padding-bottom: 0.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 20px;
   gap: 0.5rem;
 }
-.emoji {
+
+.fancy-title .emoji {
   font-size: 1.8rem;
-  color: inherit; /* reste simple */
 }
+
 .fancy-title .text {
   background: linear-gradient(90deg, #6c63ff, #7f8cff, #6c63ff);
   -webkit-background-clip: text;
@@ -55,7 +40,7 @@
   100% { background-position: 200% center; }
 }
 
-/* === Table === */
+/* === Table planning === */
 table {
   width: 100%;
   border-collapse: separate;
@@ -65,143 +50,68 @@ table {
   overflow: hidden;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
+
 thead th {
   background: linear-gradient(135deg, #6c63ff, #7f8cff);
   color: white;
-  font-weight: 500;
   text-align: center;
   padding: 1rem;
-  font-size: 0.95rem;
 }
+
 th, td {
-  border-bottom: 1px solid #ececec;
   padding: 1rem;
   text-align: center;
-  vertical-align: middle;
-  transition: background 0.25s ease;
-  white-space: pre-line;
+  border-bottom: 1px solid #ececec;
 }
-tbody tr:last-child th,
-tbody tr:last-child td { border-bottom: none; }
+
 th.periode {
+  text-align: left;
   background: #f9f9fb;
   font-weight: 600;
-  text-align: left;
-  color: #555;
   min-width: 160px;
 }
-td {
-  cursor: pointer;
-  font-size: 0.9rem;
-  border-left: 1px solid #f2f2f2;
-}
+
 td.vide {
   color: #aaa;
   font-style: italic;
 }
-td:hover { background: #f3f6ff; }
 
-@media (max-width: 768px) {
-  .header {
-    flex-direction: column;   /* logo au-dessus du titre */
-    align-items: center;      /* centrage horizontal */
-  }
-
-  .logo {
-    position: static;         /* enlève le absolute */
-    margin-bottom: 0.5rem;    /* espace entre logo et titre */
-    height: 60px;             /* taille adaptée mobile */
-  }
+td:hover {
+  background: #f3f6ff;
 }
 
-@media (max-width: 768px) {
-  .logo { height: 50px; }
-  .fancy-title { font-size: 1.5rem; }
-  table { display: block; overflow-x: auto; white-space: nowrap; }
-  thead { font-size: 0.8rem; }
-  td, th { padding: 0.75rem; }
-  th.periode { min-width: 120px; font-size: 0.85rem; }
-}
-
-th.periode {
-  background: #f9f9fb;
-  text-align: left;
-  color: #555;
-  min-width: 160px;
-  font-weight: normal; 
-}
-
-th.periode.strong {
-  font-weight: 700; 
-}
-
+/* === Sous-titres h2 === */
 h2 {
-  font-family: 'Arial', sans-serif;
-  font-size: 1.5em;        /* Taille légèrement plus grande que le texte normal */
-  color: #2c3e50;          /* Couleur bleu foncé/gris pour contraste */
+  font-size: 1.5em;
+  color: #2c3e50;
   margin-top: 1em;
   margin-bottom: 0.5em;
-  padding-left: 0.5em;     /* Un petit décalage pour aérer */
-  border-left: 4px solid #3498db; /* Barre colorée à gauche pour accent */
-  background-color: #ecf0f1; /* Fond léger pour faire ressortir le h2 */
-  border-radius: 4px;       /* Coins arrondis */
-  padding: 0.3em 0.5em;     /* Espacement intérieur */
-  transition: background-color 0.3s ease;
+  padding: 0.3em 0.5em;
+  border-left: 4px solid #3498db;
+  background-color: #ecf0f1;
+  border-radius: 4px;
 }
 
-/* Effet au survol */
 h2:hover {
-  background-color: #d0e7ff; /* Fond un peu plus bleu au survol */
-  cursor: pointer;            /* Montre que c’est interactif */
+  background-color: #d0e7ff;
+  cursor: pointer;
+}
+
+/* === Cartes === */
+.cards-container, .card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 24px;
 }
 
 .card {
-  background-color: #fdfdfd;    /* Fond clair */
-  border: 2px solid #3498db;    /* Bordure bleue */
-  border-radius: 10px;           /* Coins arrondis */
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Ombre légère */
-  padding: 1em 1.5em;           /* Espacement intérieur */
-  margin: 1em 0;                /* Espacement entre les cards */
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-/* Effet au survol */
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 12px rgba(0,0,0,0.2);
-}
-
-/* Style du titre de la card */
-.card h3 {
-  margin-top: 0;
-  color: #2c3e50;
-  font-family: 'Arial', sans-serif;
-  font-size: 1.3em;
-}
-
-/* Style des listes dans la card */
-.card ul {
-  margin: 0.5em 0 0 1em;
-  padding: 0;
-}
-
-.card ul li {
-  margin-bottom: 0.5em;
-  line-height: 1.4;
-}
-.cards-container {
-  display: flex;             /* Affichage en ligne */
-  flex-wrap: wrap;           /* Permet de passer à la ligne si trop de cartes */
-  gap: 1em;                  /* Espacement entre les cards */
-}
-
-.card {
-  background-color: #fdfdfd;
-  border: 2px solid #3498db;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  padding: 0.8em 1em;
-  width: 220px;              /* Largeur fixe pour les mini-cards */
+  background-color: #fef6e4;
+  border: 1px solid #ffd700;
+  border-radius: 12px;
+  padding: 12px;
+  width: 220px;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
@@ -216,12 +126,7 @@ h2:hover {
   color: #2c3e50;
 }
 
-.card ul {
-  margin: 0.5em 0 0 1em;
+.card p, .card ul {
+  margin: 0.5em 0 0 0;
   padding: 0;
-}
-
-.card ul li {
-  margin-bottom: 0.3em;
-  line-height: 1.3;
 }

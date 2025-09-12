@@ -5,7 +5,6 @@
   </h1>
 </div>
 
-
 <table>
   <thead>
     <tr>
@@ -13,38 +12,18 @@
       <th *ngFor="let jour of jours">Jour {{ jour }}</th>
     </tr>
   </thead>
-
-<tbody>
-  <tr *ngFor="let seance of planning; let i = index">
-    <th class="periode" [ngClass]="{ 'strong': seance.periode.startsWith('P') }">
-      {{ seance.periode }}
-    </th>
-    <td
-      *ngFor="let cell of seance.jours; let j = index"
-      (click)="onCellClick(i, j, $event)"
-      [class.vide]="cell === '—'"
-    >
-      {{ cell }}
-    </td>
-  </tr>
-</tbody>
-
+  <tbody>
+    <tr *ngFor="let seance of planning; let i = index">
+      <th class="periode" [ngClass]="{ 'strong': seance.periode.startsWith('P') }">
+        {{ seance.periode }}
+      </th>
+      <td
+        *ngFor="let cell of seance.jours; let j = index"
+        (click)="onCellClick(i, j, $event)"
+        [class.vide]="cell === '—'">
+        {{ cell }}
+      </td>
+    </tr>
+  </tbody>
 </table>
-<br>
 
-<h1 class="fancy-title">
-  <span class="emoji">🛠️</span>
-  <span class="text">Projets</span>
-</h1>
-
-<div class="cards-container">
-  <div class="card">
-    <h3>Jeu vidéo ludique : Jacquot</h3>
-    <p><a href="https://jacquot-episode1.onrender.com" target="_blank">https://jacquot-episode1.onrender.com</a></p>
-  </div>
-
-  <div class="card">
-    <h3>Mr Samir : Montage vidéo</h3>
-    <p><!-- Ajouter lien ou description ici --></p>
-  </div>
-</div>
