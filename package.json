@@ -19,6 +19,9 @@
     ]
   },
   "private": true,
+  "engines": {
+    "node": "22.x"
+  },
   "dependencies": {
     "@angular/animations": "^20.2.4",
     "@angular/common": "^20.1.0",
